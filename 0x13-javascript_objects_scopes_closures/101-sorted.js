@@ -1,11 +1,16 @@
 #!/usr/bin/node
-// JS Script
-let dict = require('./101-data').dict;
-let n = {};
-for (let i in dict) {
-  if (n[dict[i]] === undefined) {
-    n[dict[i]] = [];
+
+const dict = require('./101-data').dict;
+
+const sorted = {};
+
+for (const id in dict) {
+  const n = dict[id];
+  if (sorted[n]) {
+    sorted[n].push(id);
+  } else {
+    sorted[n] = [id];
   }
-  n[dict[i]].push(i);
 }
-console.log(n);
+
+console.log(sorted);

@@ -1,7 +1,10 @@
 #!/usr/bin/node
-// JS Script
-let fs = require('fs');
-let text1 = fs.readFileSync(process.argv[2], 'utf-8');
-let text2 = fs.readFileSync(process.argv[3], 'utf-8');
-fs.appendFile(process.argv[4], text1.concat(text2).trim());
-fs.appendFile(process.argv[4], '\n');
+const fs = require('fs');
+
+const source = process.argv[2];
+const source1 = process.argv[3];
+const destination = process.argv[4];
+
+const content =
+  fs.readFileSync(source, 'utf-8') + fs.readFileSync(source1, 'utf-8');
+fs.writeFileSync(destination, content, { encoding: 'utf-8' });

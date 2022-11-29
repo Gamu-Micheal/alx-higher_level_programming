@@ -1,9 +1,10 @@
 #!/usr/bin/node
-// JS Script
+
 exports.esrever = function (list) {
-  let res = [];
-  for (let i = list.length - 1; i >= 0; i--) {
-    res.push(list[i]);
+  for (let i = 0, j = list.length - 1; i < list.length / 2; i++, j--) {
+    const temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
   }
-  return res;
+  return list;
 };
